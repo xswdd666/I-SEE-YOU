@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "i-see-you-android-core-test",
+  "main": "gateway.mjs",
+  "compatibility_date": "2026-10-20",
+  "workers_dev": true,
+  "ratelimits": [
+    {"name":"VOICE_LIMITER","namespace_id":"1011","simple":{"limit":4,"period":60}},
+    {"name":"IMAGE_LIMITER","namespace_id":"1012","simple":{"limit":30,"period":60}}
+  ]
+}

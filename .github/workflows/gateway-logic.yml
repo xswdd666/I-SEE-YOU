@@ -1,0 +1,23 @@
+name: Gateway logic checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  logic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: pc-gateway
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: pc-gateway/package-lock.json
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: node --test --test-concurrency=1 test/stop-after-match.test.mjs test/four-stage-boundaries.test.mjs test/memory-dialogue.test.mjs test/found-location.test.mjs test/object-naming.test.mjs test/task-boundaries.test.mjs test/spatial-order.test.mjs test/speech-preparation.test.mjs

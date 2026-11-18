@@ -1,0 +1,9 @@
+// A separate test install keeps the received APK's data and signature untouched.
+allprojects {
+    plugins.withId('com.android.application') {
+        afterEvaluate {
+            android.buildTypes.debug.applicationIdSuffix = '.voicefix.debug'
+            android.buildTypes.debug.manifestPlaceholders['appLabel'] = 'I SEE YOU 语音修复'
+        }
+    }
+}

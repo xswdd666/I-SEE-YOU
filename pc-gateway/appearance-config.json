@@ -1,0 +1,13 @@
+{
+  "backend": "appearance_mvp",
+  "model": "dinov2_vits14",
+  "weights": {"appearance": 0.70, "color": 0.20, "ratio": 0.10},
+  "maxDetailBonus": 0.05,
+  "detailSaturationMatches": 10,
+  "minBaseScore": 0.4,
+  "ambiguityMargin": 0.04,
+  "maxReferences": 3,
+  "maxCandidates": 8,
+  "cropPaddingFraction": 0.05,
+  "preprocessVersion": "rgb-exif-letterbox224-gray127-imagenet-v1"
+}
